@@ -10,6 +10,7 @@ const allowedOrigins = [
   "http://localhost:5174",
   "http://localhost:5175",
   "http://localhost:5176",
+  "https://watch-party-xdf9.vercel.app",
 ];
 
 app.use(cors({ origin: allowedOrigins }));
@@ -513,7 +514,6 @@ app.get("/", (_req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
