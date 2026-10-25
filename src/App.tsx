@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const SERVER_URL = "http://localhost:3001";
+const SERVER_URL = "https://watch-party-3jya.onrender.com";
 
 type Participant = {
   userId: string;
@@ -122,7 +122,13 @@ function App() {
 
   // Connect to Socket.IO and listen for server events.
   useEffect(() => {
-    const socket = io(SERVER_URL);
+   const socket = io(SERVER_URL, {
+  transports: ["websocket", "polling"],
+  reconnection: true,
+  reconnectionAttempts: Infinity,
+  reconnectionDelay: 1000,
+  timeout: 20000,
+});
     socketRef.current = socket;
 
     socket.on("connect", () => {
