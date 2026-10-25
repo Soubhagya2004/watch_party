@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "http://localhost:3001";
+const SOCKET_URL = "https://watch-party-3jya.onrender.com";
 
 export const socket = io(SOCKET_URL, {
   autoConnect: true,
